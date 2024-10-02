@@ -29,7 +29,7 @@ header {
 header {
     display: flex;
     align-items: center; /* Alinea verticalmente el logo y el título */
-    background-color: #023047; /* Color de fondo */
+    background-color: #FFF739; /* Color de fondo */
     padding: 20px;
 }
 
