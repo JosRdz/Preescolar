@@ -1,0 +1,140 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1E1F26; /* Fondo oscuro estilo espacio */
+    background-image: url('file:///C:/Users/jeto3/Downloads/Kidsity/Kidsity/FONDO.png'); /* Ruta absoluta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #F5F5F5; /* Texto claro sobre fondo oscuro */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #3B82F6; /* Azul suave que transmite seguridad */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras suaves para dar profundidad */
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+}
+
+header h1 {
+    color: #FFD700; /* Color dorado que evoca estrellas */
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+}
+
+/* Sección principal */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor para los botones */
+.activities-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* Actividades */
+.activity {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn img {
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    border-radius: 50%; /* Botones circulares que parecen planetas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombras que asemejan profundidad espacial */
+    transition: transform 0.3s ease;
+}
+
+.btn img:hover {
+    transform: scale(1.1); /* Efecto de hover */
+}
+
+/* Pie de página */
+footer {
+    background-color: #3B82F6; /* Azul suave */
+    text-align: center;
+    padding: 10px;
+    color: #FFD700; /* Dorado para el texto */
+}
+
+footer p {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+}
+
+/* Media Queries para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .logo {
+        width: 60px;
+    }
+
+    .btn img {
+        width: 150px;
+    }
+}
+
+/* Efecto hover para los botones de los grados A, B, C, D, F */
+.grado .dropdown button:hover {
+    background-color: #FF6F61; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+
+/* Estilos generales para los botones de grados */
+.dropdown button {
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    width: 100%; /* Asegura que el botón ocupe el ancho completo */
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover para cada botón de grado */
+.grado-a:hover, .grado-b:hover, .grado-c:hover, .grado-d:hover, .grado-f:hover {
+    background-color: #FF6F61; /* Cambia el fondo */
+    color: white; /* Cambia el color del texto */
+}
+
+
+
