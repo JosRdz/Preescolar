@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidsity</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('FONDO.png'); /* Aquí está tu fondo original */
+            background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
+            background-position: center; /* Centra el fondo */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 5px; /* Reducción de padding para hacer el encabezado más corto */
+            background-color: rgba(59, 130, 246, 0.8); /* Azul suave con transparencia */
+            justify-content: space-between; /* Espacio entre elementos */
+        }
+
+        .logo {
+            width: 80px; /* Ajusta el tamaño del logo según sea necesario */
+            margin-right: 20px; /* Espacio entre el logo y el cuadro de búsqueda */
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 8px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 15px; /* Esquinas redondeadas */
+            outline: none; /* Sin contorno al seleccionar */
+            font-size: 1rem; /* Tamaño de fuente */
+            width: 200px; /* Ancho del cuadro de búsqueda */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+        }
+
+        .search-button {
+            background-color: #FF6F61; /* Color del botón de búsqueda */
+            color: white; /* Color del texto del botón */
+            border: none; /* Sin borde */
+            border-radius: 15px; /* Esquinas redondeadas */
+            padding: 8px 12px; /* Espaciado interno */
+            margin-left: 10px; /* Espacio entre el cuadro de búsqueda y el botón */
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+        }
+
+        /* Nuevo contenedor para registro e inicio de sesión */
+        .auth-container {
+            display: flex; /* Usar flexbox para alinear los enlaces */
+            gap: 15px; /* Espacio entre enlaces */
+            margin-left: auto; /* Empuja el contenedor a la derecha */
+        }
+
+        .auth-link {
+            color: white; /* Color de texto */
+            text-decoration: none; /* Sin subrayado */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Estilo para el contenedor de opciones (GRADOS, AYUDA y CUENTOS) */
+        .options-container {
+            display: flex; /* Usar flexbox para alinear horizontalmente */
+            justify-content: flex-start; /* Alinear las opciones a la izquierda */
+            gap: 20px; /* Espacio entre las opciones (ajustado) */
+            flex-grow: 1; /* Permite que el contenedor ocupe espacio adicional */
+            margin-left: 200px; /* Mueve las secciones 8 veces a la derecha */
+        }
+
+        /* Estilo para el texto "GRADOS", "AYUDA" y "CUENTOS" */
+        .grado, .ayuda, .cuentos {
+            color: #333; /* Color por defecto */
+            font-size: 1.5rem; /* Tamaño de fuente */
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+            position: relative; /* Para posicionar el menú desplegable */
+        }
+
+        /* Efecto hover */
+        .grado:hover, .ayuda:hover, .cuentos:hover {
+            color: skyblue; /* Color al pasar el mouse */
+        }
+
+        /* Estilo para el menú desplegable */
+        .dropdown {
+            display: none; /* Oculto por defecto */
+            position: absolute; /* Para que el menú se posicione sobre otros elementos */
+            top: 100%; /* Abajo del texto */
+            left: 50%; /* Centrado */
+            transform: translateX(-50%); /* Centra el menú */
+            background-color: white; /* Fondo blanco */
+            border-radius: 8px; /* Esquinas redondeadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            z-index: 1; /* Asegura que se superponga a otros elementos */
+        }
+
+        /* Estilo para los botones del menú */
+        .dropdown button {
+            width: 100%; /* Botón ocupa todo el ancho */
+            padding: 10px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            background-color: transparent; /* Fondo transparente */
+            text-align: left; /* Alinear texto a la izquierda */
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+        }
+
+        /* Efecto hover en los botones del menú */
+        .dropdown button:hover {
+            background-color: #f0f8ff; /* Cambia el fondo al pasar el mouse */
+        }
+
+        /* Mostrar el menú al hacer hover sobre el texto GRADOS, AYUDA o CUENTOS */
+        .grado:hover .dropdown,
+        .ayuda:hover .dropdown,
+        .cuentos:hover .dropdown {
+            display: block; /* Muestra el menú al pasar el mouse */
+        }
+
+        footer {
+            margin-top: 30px;
+            background-color: #FF6F61; /* Color del pie de página */
+            color: white; /* Color del texto en el pie de página */
+            padding: 10px;
+            text-align: center; /* Centra el texto en el pie de página */
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Contenedor para centrar el botón de imagen en el viewport */
+        .centered-container {
+            display: flex; /* Usar flexbox para centrar */
+            justify-content: flex-start; /* Alinea el botón a la izquierda */
+            align-items: center; /* Centra verticalmente el botón */
+            height: 100vh; /* Ocupa el 100% de la altura del viewport */
+            position: relative; /* Para posicionar elementos dentro de él */
+            margin-left: 50px; /* Ajusta el margen izquierdo según sea necesario */
+        }
+
+        .image-button {
+            border: none; /* Sin borde */
+            background: none; /* Sin fondo */
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+            transition: transform 0.3s ease; /* Agrega una transición suave */
+        }
+
+        .image-button:hover {
+            transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+        }
+
+        .image-btn {
+            width: 400px; /* Ajusta el tamaño de la imagen a 400px de ancho */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+
+        /* Estilo para la nueva imagen pequeña en la parte superior derecha */
+        .jupiter-image-container {
+            position: absolute; /* Para que la nueva imagen se superponga */
+            top: 340px; /* Ajusta la distancia desde la parte superior */
+            right: 60px; /* Ajusta la distancia desde la derecha */
+        }
+
+        .jupiter-image {
+            width: 300px; /* Ajusta el tamaño de la nueva imagen según sea necesario */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+
+        /* Estilo para la nueva imagen pequeña en la parte superior derecha */
+        .tierra-image-container {
+            position: absolute; /* Para que la nueva imagen se superponga */
+            top: 100px; /* Ajusta la distancia desde la parte superior */
+            right: 320px; /* Ajusta la distancia desde la derecha */
+        }
+
+        .tierra-image {
+            width: 300px; /* Ajusta el tamaño de la nueva imagen según sea necesario */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+        
+        /* Estilo para la nueva imagen pequeña en la parte superior derecha */
+        .venus-image-container {
+            position: absolute; /* Para que la nueva imagen se superponga */
+            top: 340px; /* Ajusta la distancia desde la parte superior */
+            right:550px; /* Ajusta la distancia desde la derecha */
+        }
+
+        .venus-image {
+            width: 300px; /* Ajusta el tamaño de la nueva imagen según sea necesario */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+
+        /* Estilo para la nueva imagen pequeña en la parte superior derecha */
+        .small-image-container {
+            position: absolute; /* Para que la nueva imagen se superponga */
+            top: 100px; /* Ajusta la distancia desde la parte superior */
+            right: 780px; /* Ajusta la distancia desde la derecha */
+        }
+
+        .small-image {
+            width: 300px; /* Ajusta el tamaño de la nueva imagen según sea necesario */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar...">
+            <button class="search-button">Buscar</button>
+        </div>
+        <div class="options-container">
+            <div class="grado">
+                GRADOS ⭣
+                <div class="dropdown">
+                    <button onclick="alert('Seleccionado: GRADO A')">GRADO A</button>
+                    <button onclick="alert('Seleccionado: GRADO B')">GRADO B</button>
+                    <button onclick="alert('Seleccionado: GRADO C')">GRADO C</button>
+                    <button onclick="alert('Seleccionado: GRADO D')">GRADO D</button>
+                    <button onclick="alert('Seleccionado: GRADO F')">GRADO F</button>
+                </div>
+            </div>
+            <div class="ayuda">
+                AYUDA ⭣
+                <div class="dropdown">
+                    <button onclick="alert('¿Cómo puedo ayudarte?')">Preguntas Frecuentes</button>
+                    <button onclick="alert('Seleccionado: Soporte')">Soporte</button>
+                </div>
+            </div>
+            <div class="cuentos">
+                CUENTOS ⭣
+                <div class="dropdown">
+                    <button onclick="alert('Cuento 1: Caperucita Roja')">Caperucita Roja</button>
+                    <button onclick="alert('Cuento 2: El Patito Feo')">El Patito Feo</button>
+                </div>
+            </div>
+        </div>
+        <div class="auth-container">
+            <a href="#" class="auth-link">Registro</a>
+            <a href="#" class="auth-link">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <style>
+        /* Efecto hover para Mercurio */
+        .small-image-container:hover .small-image {
+            transform: scale(1.1); /* Aumenta el tamaño en un 10% al hacer hover */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+    
+        /* Efecto hover para Júpiter */
+        .jupiter-image-container:hover .jupiter-image {
+            transform: scale(1.1); /* Aumenta el tamaño en un 10% al hacer hover */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+    
+        /* Efecto hover para Venus */
+        .venus-image-container:hover .venus-image {
+            transform: scale(1.1); /* Aumenta el tamaño en un 10% al hacer hover */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+    
+        /* Efecto hover para Tierra */
+        .tierra-image-container:hover .tierra-image {
+            transform: scale(1.1); /* Aumenta el tamaño en un 10% al hacer hover */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+    </style>
+    
+
+    <!-- Contenedor para la nueva imagen pequeña en la parte superior derecha -->
+    <div class="small-image-container">
+        <img src="MERCURIO.png" alt="Imagen Pequeña" class="small-image"> <!-- Cambia "tu_imagen_pequena.png" por el nombre de tu imagen -->
+    </div>
+
+    <!-- Contenedor para la nueva imagen pequeña en la parte superior derecha -->
+    <div class="jupiter-image-container">
+        <img src="JUPITER.png" alt="Imagen Pequeña" class="small-image"> <!-- Cambia "tu_imagen_pequena.png" por el nombre de tu imagen -->
+    </div>
+
+    <!-- Contenedor para la nueva imagen pequeña en la parte superior derecha -->
+    <div class="venus-image-container">
+        <img src="VENUS.png" alt="Imagen Pequeña" class="small-image"> <!-- Cambia "tu_imagen_pequena.png" por el nombre de tu imagen -->
+    </div>
+
+    <!-- Contenedor para la nueva imagen pequeña en la parte superior derecha -->
+    <div class="tierra-image-container">
+        <img src="TIERRA.png" alt="Imagen Pequeña" class="small-image"> <!-- Cambia "tu_imagen_pequena.png" por el nombre de tu imagen -->
+    </div>
+
+    <!-- Contenedor para el botón de imagen centrado -->
+    <div class="centered-container">
+        <button class="image-button">
+            <img src="SOL.png" alt="Sol" class="image-btn">
+        </button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Aprendamos Jugando. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
