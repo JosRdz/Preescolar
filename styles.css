@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Estilos generales */
 * {
     margin: 0;
@@ -142,7 +141,6 @@ footer p {
         align-items: center; /* Centra botones en la pantalla */
     }
 }
-=======
 /* Estilos generales */
 * {
     margin: 0;
@@ -280,7 +278,3 @@ footer p {
     background-color: #FF6F61; /* Cambia el fondo */
     color: white; /* Cambia el color del texto */
 }
-
-
-
->>>>>>> cf6e14a9c0e70dbe7a55ff94030dfe676bd57811
