@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-image: url('Fondos/FONDO.png '); /* Aquí está tu fondo original */
+            background-image: url('FONDO.png'); /* Fondo de la página */
             background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
             background-position: center; /* Centra el fondo */
-            font-family: 'Monospace', monospace; /* Cambiado a Monospace */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             color: #333;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+            min-height: 100vh; /* Altura mínima del cuerpo */
         }
 
         header {
             display: flex;
             align-items: center;
-            padding: 5px; /* Reducción de padding para hacer el encabezado más corto */
-            background-color: rgba(59, 130, 246, 0.8); /* Azul suave con transparencia */
+            padding: 5px; /* Reducción de padding para el encabezado */
+            background-color: rgba(59, 130, 246, 0.8); /* Azul suave */
             justify-content: space-between; /* Espacio entre elementos */
         }
 
         .logo {
-            width: 250px; /* Aumenta el tamaño del logo */
+            width: 80px; /* Tamaño del logo */
             margin-right: 20px; /* Espacio entre el logo y el cuadro de búsqueda */
         }
 
@@ -43,17 +43,17 @@
             outline: none; /* Sin contorno al seleccionar */
             font-size: 1rem; /* Tamaño de fuente */
             width: 200px; /* Ancho del cuadro de búsqueda */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
         }
 
         .search-button {
             background-color: #FF6F61; /* Color del botón de búsqueda */
-            color: white; /* Color del texto del botón */
+            color: white; /* Color del texto */
             border: none; /* Sin borde */
             border-radius: 15px; /* Esquinas redondeadas */
             padding: 8px 12px; /* Espaciado interno */
             margin-left: 10px; /* Espacio entre el cuadro de búsqueda y el botón */
-            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+            cursor: pointer; /* Cambiar el cursor */
         }
 
         .auth-container {
@@ -79,7 +79,7 @@
         .grado, .ayuda, .cuentos {
             color: #333; /* Color por defecto */
             font-size: 1.5rem; /* Tamaño de fuente */
-            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+            cursor: pointer; /* Cambiar el cursor */
             position: relative; /* Para posicionar el menú desplegable */
         }
 
@@ -95,7 +95,7 @@
             transform: translateX(-50%); /* Centra el menú */
             background-color: white; /* Fondo blanco */
             border-radius: 8px; /* Esquinas redondeadas */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
             z-index: 1; /* Asegura que se superponga a otros elementos */
         }
 
@@ -132,11 +132,9 @@
 
         /* Contenedor para centrar el botón de imagen en el viewport */
         .centered-container {
-            display: flex;
-            justify-content: space-between; /* Distribuye los botones con espacio entre ellos */
-            align-items: center; /* Alinea los botones verticalmente */
-            width: 100%; /* Ajusta el ancho para ocupar todo el espacio disponible */
-            padding: 20px; /* Espaciado alrededor de los botones */
+            position: relative; /* Permite que los botones se posicionen dentro de este contenedor */
+            height: 250px; /* Aumenta la altura del contenedor */
+            overflow: hidden; /* Evita el desbordamiento */
         }
 
         .image-button {
@@ -144,6 +142,8 @@
             background: none; /* Sin fondo */
             cursor: pointer; /* Cambiar el cursor al pasar el mouse */
             transition: transform 0.3s ease; /* Agrega una transición suave */
+            position: absolute; /* Para permitir el posicionamiento libre */
+            bottom: 0; /* Alinea los botones en la parte inferior del contenedor */
         }
 
         .image-button:hover {
@@ -157,12 +157,12 @@
 </head>
 <body>
     <header>
-        <img src="Logos/logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="Logo" class="logo">
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar...">
             <button class="search-button">Buscar</button>
         </div>
-        <div class="options-container" style="position: absolute; left: 550px;"> <!-- Mueve hacia la izquierda -->
+        <div class="options-container">
             <div class="grado">
                 GRADOS ⭣
                 <div class="dropdown">
@@ -192,28 +192,30 @@
             <a href="#" class="auth-link">Registro</a>
             <a href="#" class="auth-link">Iniciar Sesión</a>
         </div>
-    </header>    
+    </header>
 
     <div class="centered-container">
-        <button class="image-button">
-            <img src="Botones/JUPITER.png" alt="Júpiter" class="image-btn">
+        <button class="image-button" style="left: 200px;">
+            <img src="JUPITER.png" alt="Júpiter" class="image-btn" style="width: 200px;">
         </button>
-        <button class="image-button">
-            <img src="Botones/TIERRA.png" alt="Tierra" class="image-btn">
+        <button class="image-button" style="left: 450px;">
+            <img src="TIERRA.png" alt="Tierra" class="image-btn" style="width: 200px;">
         </button>
-        <button class="image-button">
-            <img src="Botones/VENUS.png" alt="Venus" class="image-btn">
+        <button class="image-button" style="left: 700px;">
+            <img src="VENUS.png" alt="Venus" class="image-btn" style="width: 200px;">
         </button>
-        <button class="image-button">
-            <img src="Botones/MERCURIO.png" alt="Mercurio" class="image-btn">
+        <button class="image-button" style="left: 950px;">
+            <img src="MERCURIO.png" alt="Mercurio" class="image-btn" style="width: 200px;">
         </button>
-        <button class="image-button">
-            <img src="Botones/SOL.png" alt="Sol" class="image-btn">
+        <button class="image-button" style="left: 1200px;">
+            <img src="SOL.png" alt="Sol" class="image-btn" style="width: 250px;">
         </button>
-    </div>    
+    </div>
 
     <footer>
-        <p>© 2025 Kidsity. Todos los derechos reservados.</p>
+
+        /* FRAMEWORK */
+        <p>&copy; 2024 Kidsity. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
