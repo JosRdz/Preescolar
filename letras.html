@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender Letras</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Fondo azul claro */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #FF6F61; /* Naranja amigable */
+            margin-top: 20px;
+        }
+
+        .letters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .letter {
+            background-color: #87CEFA; /* Azul cielo */
+            border: 2px solid #4682B4; /* Azul más oscuro */
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #FFF;
+            transition: transform 0.3s ease;
+        }
+
+        .letter:hover {
+            transform: scale(1.2);
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            background-color: #FF6F61;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .back-btn:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aprender Letras</h1>
+    </header>
+
+    <section class="letters-container">
+        <!-- Generar letras para el juego -->
+        <div class="letter">A</div>
+        <div class="letter">B</div>
+        <div class="letter">C</div>
+        <div class="letter">D</div>
+        <div class="letter">E</div>
+        <div class="letter">F</div>
+        <div class="letter">G</div>
+        <div class="letter">H</div>
+        <div class="letter">I</div>
+        <div class="letter">J</div>
+        <div class="letter">K</div>
+        <!-- Puedes añadir más letras según sea necesario -->
+    </section>
+
+    <footer>
+        <button class="back-btn" onclick="location.href='index.html'">Volver al inicio</button>
+    </footer>
+
+</body>
+</html>

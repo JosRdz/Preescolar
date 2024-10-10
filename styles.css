@@ -1,0 +1,143 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('Fondos/FONDO.png'); /* Aquí está tu fondo original */
+    background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
+    background-position: center; /* Centra el fondo */
+    font-family: 'Monospace', monospace; /* Cambia a Monospace */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+}
+
+
+/* Encabezado */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #3B82F6; /* Azul suave que transmite seguridad */
+    padding: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras suaves para dar profundidad */
+}
+
+.logo {
+    width: 400px; /* Aumenta el tamaño del logo */
+    margin-right: 20px; /* Espacio entre el logo y el cuadro de búsqueda */
+}
+
+header h1 {
+    color: #FFD700; /* Color dorado que evoca estrellas */
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+}
+
+/* Sección principal */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.options-container {
+    display: flex; /* Mantiene los botones en una fila */
+    gap: 20px; /* Espacio entre los botones */
+    margin-left: 200px; /* Ajusta la posición como desees */
+}
+
+.dropdown {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Para que el menú se posicione sobre otros elementos */
+    top: 100%; /* Abajo del texto */
+    left: 50%; /* Centrado */
+    transform: translateX(-50%); /* Centra el menú */
+    background-color: white; /* Fondo blanco */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    z-index: 1; /* Asegura que se superponga a otros elementos */
+}
+
+/* Contenedor para los botones */
+.activities-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* Actividades */
+.activity {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #FF8C75; /* Color al pasar el mouse */
+}
+
+
+.image-btn {
+    max-width: 100%; /* Las imágenes no excederán el ancho del botón */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 50%; /* Botones circulares que parecen planetas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombras que asemejan profundidad espacial */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.btn img:hover {
+    transform: scale(1.1); /* Efecto de hover */
+}
+
+/* Pie de página */
+footer {
+    background-color: #3B82F6; /* Azul suave */
+    text-align: center;
+    padding: 10px;
+    color: #FFD700; /* Dorado para el texto */
+}
+
+footer p {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+}
+
+/* Media para los celulares */
+@media (max-width: 600px) {
+    .logo {
+        width: 50px; /* Tamaño del logo en dispositivos pequeños */
+    }
+
+    .search-input {
+        width: 150px; /* Ancho del cuadro de búsqueda en móviles */
+    }
+
+    .options-container {
+        margin-left: 20px; /* Reduce el margen en móviles */
+        flex-direction: column; /* Apila verticalmente en pantallas pequeñas */
+        gap: 10px; /* Espacio reducido entre opciones */
+    }
+
+    .centered-container {
+        flex-direction: column; /* Apila botones verticalmente */
+        align-items: center; /* Centra botones en la pantalla */
+    }
+}
