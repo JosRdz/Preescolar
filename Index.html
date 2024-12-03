@@ -3,219 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kidsity</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
     <style>
         body {
-            background-image: url('FONDO.png'); /* Fondo de la página */
-            background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
-            background-position: center; /* Centra el fondo */
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh; /* Altura mínima del cuerpo */
-        }
-
-        header {
-            display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 5px; /* Reducción de padding para el encabezado */
-            background-color: rgba(59, 130, 246, 0.8); /* Azul suave */
-            justify-content: space-between; /* Espacio entre elementos */
+            height: 100vh;
+            margin: 0;
         }
-
-        .logo {
-            width: 80px; /* Tamaño del logo */
-            margin-right: 20px; /* Espacio entre el logo y el cuadro de búsqueda */
+        .login-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
-
-        .search-container {
-            display: flex;
-            align-items: center;
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-
-        .search-input {
-            padding: 8px; /* Espaciado interno */
-            border: none; /* Sin borde */
-            border-radius: 15px; /* Esquinas redondeadas */
-            outline: none; /* Sin contorno al seleccionar */
-            font-size: 1rem; /* Tamaño de fuente */
-            width: 200px; /* Ancho del cuadro de búsqueda */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+        .form-group {
+            margin-bottom: 15px;
         }
-
-        .search-button {
-            background-color: #FF6F61; /* Color del botón de búsqueda */
-            color: white; /* Color del texto */
-            border: none; /* Sin borde */
-            border-radius: 15px; /* Esquinas redondeadas */
-            padding: 8px 12px; /* Espaciado interno */
-            margin-left: 10px; /* Espacio entre el cuadro de búsqueda y el botón */
-            cursor: pointer; /* Cambiar el cursor */
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-
-        .auth-container {
-            display: flex; /* Usar flexbox para alinear los enlaces */
-            gap: 15px; /* Espacio entre enlaces */
-            margin-left: auto; /* Empuja el contenedor a la derecha */
-        }
-
-        .auth-link {
-            color: white; /* Color de texto */
-            text-decoration: none; /* Sin subrayado */
-            font-weight: bold; /* Texto en negrita */
-        }
-
-        .options-container {
-            display: flex; /* Usar flexbox para alinear horizontalmente */
-            justify-content: flex-start; /* Alinear las opciones a la izquierda */
-            gap: 20px; /* Espacio entre las opciones */
-            flex-grow: 1; /* Permite que el contenedor ocupe espacio adicional */
-            margin-left: 200px; /* Mueve las secciones a la derecha */
-        }
-
-        .grado, .ayuda, .cuentos {
-            color: #333; /* Color por defecto */
-            font-size: 1.5rem; /* Tamaño de fuente */
-            cursor: pointer; /* Cambiar el cursor */
-            position: relative; /* Para posicionar el menú desplegable */
-        }
-
-        .grado:hover, .ayuda:hover, .cuentos:hover {
-            color: skyblue; /* Color al pasar el mouse */
-        }
-
-        .dropdown {
-            display: none; /* Oculto por defecto */
-            position: absolute; /* Para que el menú se posicione sobre otros elementos */
-            top: 100%; /* Abajo del texto */
-            left: 50%; /* Centrado */
-            transform: translateX(-50%); /* Centra el menú */
-            background-color: white; /* Fondo blanco */
-            border-radius: 8px; /* Esquinas redondeadas */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-            z-index: 1; /* Asegura que se superponga a otros elementos */
-        }
-
-        .dropdown button {
-            width: 100%; /* Botón ocupa todo el ancho */
-            padding: 10px; /* Espaciado interno */
-            border: none; /* Sin borde */
-            background-color: transparent; /* Fondo transparente */
-            text-align: left; /* Alinear texto a la izquierda */
-            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-        }
-
-        .dropdown button:hover {
-            background-color: #f0f8ff; /* Cambia el fondo al pasar el mouse */
-        }
-
-        .grado:hover .dropdown,
-        .ayuda:hover .dropdown,
-        .cuentos:hover .dropdown {
-            display: block; /* Muestra el menú al pasar el mouse */
-        }
-
-        footer {
-            margin-top: 30px;
-            background-color: #FF6F61; /* Color del pie de página */
-            color: white; /* Color del texto en el pie de página */
+        .form-group input {
+            width: 100%;
             padding: 10px;
-            text-align: center; /* Centra el texto en el pie de página */
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        footer p {
-            font-size: 1rem;
+        .login-btn {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
-
-        /* Contenedor para centrar el botón de imagen en el viewport */
-        .centered-container {
-            position: relative; /* Permite que los botones se posicionen dentro de este contenedor */
-            height: 250px; /* Aumenta la altura del contenedor */
-            overflow: hidden; /* Evita el desbordamiento */
+        .login-btn:hover {
+            background-color: #45a049;
         }
-
-        .image-button {
-            border: none; /* Sin borde */
-            background: none; /* Sin fondo */
-            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-            transition: transform 0.3s ease; /* Agrega una transición suave */
-            position: absolute; /* Para permitir el posicionamiento libre */
-            bottom: 0; /* Alinea los botones en la parte inferior del contenedor */
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
         }
-
-        .image-button:hover {
-            transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
-        }
-
-        .image-btn {
-            height: auto; /* Mantiene la proporción de la imagen */
+        .register-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Buscar...">
-            <button class="search-button">Buscar</button>
-        </div>
-        <div class="options-container">
-            <div class="grado">
-                GRADOS ⭣
-                <div class="dropdown">
-                    <button>GRADO A</button>
-                    <button>GRADO B</button>
-                    <button>GRADO C</button>
-                    <button>GRADO D</button>
-                    <button>GRADO F</button>
-                </div>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
             </div>
-            <div class="ayuda">
-                AYUDA ⭣
-                <div class="dropdown">
-                    <button>Preguntas Frecuentes</button>
-                    <button>Soporte</button>
-                </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <div class="cuentos">
-                CUENTOS ⭣
-                <div class="dropdown">
-                    <button>Caperucita Roja</button>
-                    <button>El Patito Feo</button>
-                </div>
-            </div>
-        </div>
-        <div class="auth-container">
-            <a href="#" class="auth-link">Registro</a>
-            <a href="#" class="auth-link">Iniciar Sesión</a>
-        </div>
-    </header>
-
-    <div class="centered-container">
-        <button class="image-button" style="left: 200px;">
-            <img src="JUPITER.png" alt="Júpiter" class="image-btn" style="width: 200px;">
-        </button>
-        <button class="image-button" style="left: 450px;">
-            <img src="TIERRA.png" alt="Tierra" class="image-btn" style="width: 200px;">
-        </button>
-        <button class="image-button" style="left: 700px;">
-            <img src="VENUS.png" alt="Venus" class="image-btn" style="width: 200px;">
-        </button>
-        <button class="image-button" style="left: 950px;">
-            <img src="MERCURIO.png" alt="Mercurio" class="image-btn" style="width: 200px;">
-        </button>
-        <button class="image-button" style="left: 1200px;">
-            <img src="SOL.png" alt="Sol" class="image-btn" style="width: 250px;">
-        </button>
+            <button type="submit" class="login-btn">Entrar</button>
+        </form>
+        <a href="/register" class="register-link">¿No tienes cuenta? Regístrate</a>
     </div>
-
-    <footer>
-
-        /* FRAMEWORK */
-        <p>&copy; 2024 Kidsity. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>
